@@ -381,3 +381,84 @@ qualificationBox.innerHTML +=
 
 
 }
+function generateCalendar(teams){
+
+    let names = teams.map(team=>team.name);
+
+    let rounds = [];
+
+    let list = [...names];
+
+
+    // Si nombre impair, on ajoute une équipe fictive
+    if(list.length % 2 !== 0){
+        list.push("Repos");
+    }
+
+
+    let totalRounds = list.length - 1;
+    let half = list.length / 2;
+
+
+    for(let r = 0; r < totalRounds; r++){
+
+        let matches=[];
+
+
+        for(let i=0;i<half;i++){
+
+            let home=list[i];
+            let away=list[list.length-1-i];
+
+
+            if(home !== "Repos" && away !== "Repos"){
+
+                matches.push({
+
+                    home:home,
+                    away:away,
+                    date:"",
+                    time:"21:00",
+                    h:null,
+                    a:null
+
+                });
+
+            }
+
+        }
+
+
+        rounds.push(matches);
+
+
+        // Rotation des équipes
+        list.splice(
+            1,
+            0,
+            list.pop()
+        );
+
+    }
+
+
+    // Matchs retour
+    let returnRounds = rounds.map(round=>
+
+        round.map(match=>({
+
+            home:match.away,
+            away:match.home,
+            date:"",
+            time:"21:00",
+            h:null,
+            a:null
+
+        }))
+
+    );
+
+
+    return [...rounds,...returnRounds];
+
+}

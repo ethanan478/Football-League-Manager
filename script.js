@@ -1,3 +1,5 @@
+const qualificationBox =
+document.getElementById("qualificationBox");
 const leagues = {
 
     ligue1: {
@@ -196,7 +198,7 @@ function loadLeague(){
 
 }
 
-
+loadQualifications(sorted);
 
 function updateScore(index){
 
@@ -301,3 +303,81 @@ selector.addEventListener("change",()=>{
 
 
 loadLeague();
+function loadQualifications(teams){
+
+
+qualificationBox.innerHTML="";
+
+
+qualificationBox.innerHTML += `
+
+<p>🏆 Ligue des Champions</p>
+
+`;
+
+teams.slice(0,3).forEach(team=>{
+
+qualificationBox.innerHTML +=
+`
+<div>
+🥇 ${team.name}
+</div>
+`;
+
+});
+
+
+qualificationBox.innerHTML += `
+
+<br>
+
+<p>🟧 Ligue Europa</p>
+
+`;
+
+
+teams.slice(3,5).forEach(team=>{
+
+
+qualificationBox.innerHTML +=
+
+`
+
+<div>
+⚽ ${team.name}
+</div>
+
+`;
+
+
+});
+
+
+
+qualificationBox.innerHTML += `
+
+<br>
+
+<p>🔻 Relégation</p>
+
+`;
+
+
+
+teams.slice(-2).forEach(team=>{
+
+
+qualificationBox.innerHTML +=
+
+`
+
+<div>
+❌ ${team.name}
+</div>
+
+`;
+
+});
+
+
+}

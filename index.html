@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Football League Manager</title>
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+    <h1>⚽ Football League Manager</h1>
+
+    <select id="leagueSelect">
+        <option value="ligue1">🇫🇷 Ligue 1</option>
+        <option value="bundesliga">🇩🇪 Bundesliga</option>
+        <option value="premier">🏴 Premier League</option>
+    </select>
+</header>
+
+
+<section class="dashboard">
+
+<div class="card">
+<h2>🏆 Classement</h2>
+
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Club</th>
+<th>MJ</th>
+<th>V</th>
+<th>N</th>
+<th>D</th>
+<th>Pts</th>
+</tr>
+</thead>
+
+<tbody id="ranking">
+
+</tbody>
+
+</table>
+
+</div>
+
+
+
+<div class="card">
+
+<h2>📅 Calendrier</h2>
+
+<div id="calendar"></div>
+
+</div>
+
+
+</section>
+
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
